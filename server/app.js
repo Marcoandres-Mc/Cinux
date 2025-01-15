@@ -25,7 +25,7 @@ app.get('/', (req, res) => {
 
 // Configuración de CORS
 const allowedOrigins = [
-    'https://cinux.vercel.app',
+    'https://cinux-blush.vercel.app/',
     'http://localhost:5173' // Opcional, para desarrollo local
 ];
 
