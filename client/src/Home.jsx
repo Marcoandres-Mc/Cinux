@@ -13,7 +13,7 @@ import Detalle from './Components/Principal/Detalle';
 const HomePage = () => {
   return (
     <div className="flex flex-col sm:flex-row bg-white h-full">
-      <div className="flex flex-col w-[100%] md:ml-[300px]">
+      <div className="flex flex-col">
         <Header />
         <div>
           <Routes>
