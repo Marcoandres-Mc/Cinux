@@ -26,12 +26,6 @@ const Footer = () => {
             <a href="https://github.com/Jean-20" className="me-6 [&>svg]:h-4 [&>svg]:w-4">
               <FontAwesomeIcon icon={faGithub} />
             </a>
-            <a href="https://www.instagram.com/hocchicr/" className="me-6 [&>svg]:h-4 [&>svg]:w-4">
-              <FontAwesomeIcon icon={faInstagram} />
-            </a>
-            <a href="https://github.com/Hocchik" className="me-6 [&>svg]:h-4 [&>svg]:w-4">
-              <FontAwesomeIcon icon={faGithub} />
-            </a>
           </div>
         </div>
         <div className="mx-6 py-10 text-center md:text-left">

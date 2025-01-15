@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { Spinner } from '@material-tailwind/react';
+import Spinner from '../Spinner';
 import { getPeliculas } from '../../api/peliculas';
 import { useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
@@ -62,7 +62,7 @@ const Recomendaciones = () => {
             <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4">
                 {loading ? (
                     <div className=" flex text-center justify-center ">
-                        <Spinner color="blue" size="xxl" className="flex justify-center m-20 w-28 h-28" />
+                        <Spinner />
                     </div>
                 ) : (
                     <>

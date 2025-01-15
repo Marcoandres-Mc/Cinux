@@ -4,7 +4,7 @@ import { useDispatch } from 'react-redux';
 import { ingresoDatosCompra, actualizarCompra } from '../../Components/Redux/Compra/EntradaCompraSlice';
 import { useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
-
+import Spinner from '../../Components/Spinner';
 
 const Dulceria = () => {
   const [cantidades, setCantidades] = useState({
@@ -16,6 +16,7 @@ const Dulceria = () => {
   const datos = useSelector((state) => state.entradaCompra);
   const dispatch = useDispatch();
   const navigate = useNavigate();
+  const [loading, setLoading] = useState(false);
 
   const combos = [
     {
@@ -99,14 +100,18 @@ const Dulceria = () => {
       dulceria: dulcesCompradas.trim(),
       precioTotal: resumenCompra.precioTotal + precioTotal,
     }))
-      ;
+    setLoading(true);
+    setTimeout(() => {
+      navigate("/home/comprar/pago");
+      setLoading(false);
+    }, 2000);
 
-    navigate("/home/comprar/pago");
   };
 
 
   return (
     <div className="p-2 bg-white rounded-lg shadow-lg w-full max-w-4xl mx-auto ">
+      {loading && <Spinner />}
       <h3 className="text-2xl font-bold text-blue-600 mb-4">Dulcería</h3>
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-6">

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { Spinner } from '@material-tailwind/react';
+import Spinner from '../Spinner';
 import { getSedes } from '../../api/sedes';
 
 const Sedes = () => {
@@ -26,7 +26,7 @@ const Sedes = () => {
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 max-w-[1200px] mx-auto p-5">
                 {loading ? (
                     <div className=" flex text-center justify-center ">
-                        <Spinner color="blue" size="xxl" className="flex justify-center m-20 w-28 h-28" />
+                        <Spinner />
                     </div>
                 ) : (
                     <>

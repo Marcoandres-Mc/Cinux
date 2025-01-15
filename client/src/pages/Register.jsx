@@ -1,3 +1,4 @@
+import React from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { registerUser } from '../api/users';
 import { useForm } from 'react-hook-form';

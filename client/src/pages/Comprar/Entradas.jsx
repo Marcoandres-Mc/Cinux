@@ -2,6 +2,9 @@ import React, { useState, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { ingresoDatosCompra } from '../../Components/Redux/Compra/EntradaCompraSlice';
+import Spinner from '../../Components/Spinner';
+
+
 const Entradas = () => {
   const [cantidadMax, setCantidadMax] = useState(0);
   const [cantidadReparto, setCantidadReparto] = useState(0);
@@ -82,7 +85,8 @@ const Entradas = () => {
 
   const [recolecionEntradas, setRecolecionEntradas] = useState();
   const [recoleccionPrecio, setRecoleccionPrecio] = useState();
-
+  const [loading, setLoading] = useState(false);
+  
 
   const handleCompra = () => {
     let entradasCompradas = "";
@@ -104,12 +108,17 @@ const Entradas = () => {
       precioTotal: precioTotal,
     }));
 
-    navigate("/home/comprar/dulceria");
+    setLoading(true);
+    setTimeout(() => {
+      navigate("/home/comprar/dulceria");
+    }, 2000);
+
   };
 
 
   return (
     <div className="p-8 bg-white rounded-lg shadow-lg w-full max-w-4xl mx-auto">
+      {loading && <Spinner />}
       <h3 className="text-2xl font-bold text-blue-600 mb-4">Entradas Generales</h3>
 
       <div className="space-y-4">

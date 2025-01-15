@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { ingresoDatosCompra } from '../../Components/Redux/Compra/EntradaCompraSlice';
 /* import { getAsiestosOcupados } from '../../api/asientos'; */
-
+import Spinner from '../../Components/Spinner';
 
 const filas = ['AA', 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K'];
 const columnas = Array.from({ length: 12 }, (_, i) => i + 1);
@@ -14,7 +14,7 @@ const Asiento = () => {
   const [asientosOcupados, setAsientosOcupados] = useState(['A1', 'A2', 'D3', 'D4', 'A5', 'K11', 'K12', 'F8', 'F9', 'I10']);
   const datos = useSelector((state) => state.entradaCompra);
   const navigate = useNavigate();
-
+  const [loading, setLoading] = useState(false);
 
   const toggleAsiento = (asiento) => {
     if (asientosOcupados.includes(asiento)) return;
@@ -35,12 +35,6 @@ const Asiento = () => {
 
   const dispatch = useDispatch();
 
-  /*   useEffect(() => {
-      dispatch(actualizarCompra({
-        asientos: asientosSeleccionados,
-        cantidadAsientos: asientosSeleccionados.length,
-    }))
-    }, [asientosSeleccionados]); */
 
   const handleFuctionClick = () => {
     const nuevosDatos = {
@@ -48,14 +42,19 @@ const Asiento = () => {
       asientos: asientosSeleccionados.join(', '),
       cantidadAsientos: asientosSeleccionados.length,
     };
+    setLoading(true);
 
-    dispatch(ingresoDatosCompra(nuevosDatos));
-    navigate("/home/comprar/entradas");
+    setTimeout(() => {
+      dispatch(ingresoDatosCompra(nuevosDatos));
+      navigate("/home/comprar/entradas");
+      setLoading(false);
+    }, 2000);
 
   };
 
   return (
     <div className="flex flex-col items-center p-2 bg-gray-50 rounded-lg shadow-lg w-[800] ">
+      {loading && <Spinner />}
       <div className='flex flex-row gap-10'>
         <div>
           <h2 className="text-2xl font-semibold mb-4 text-center">Pantalla</h2>

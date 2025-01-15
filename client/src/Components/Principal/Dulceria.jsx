@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Spinner } from '@material-tailwind/react';
+import  Spinner  from "../Spinner"
 import { getDulces } from '../../api/dulceria';
 
 const Dulceria = () => {
@@ -29,7 +29,7 @@ const Dulceria = () => {
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-[1200px] mx-auto">
                 {loading ? (
                     <div className=" flex text-center justify-center ">
-                        <Spinner color="blue" size="xxl" className="flex justify-center m-20 w-28 h-28" />
+                        <Spinner />
                     </div>
                 ) : (
                     <>

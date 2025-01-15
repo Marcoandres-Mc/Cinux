@@ -9,28 +9,33 @@ import Footer from './pages/Footer';
 import Home from './pages/Home'
 import Sedes from './Components/Principal/Sedes';
 import Detalle from './Components/Principal/Detalle';
+import ScrollToTop from './ScrollToTop';
 
 const HomePage = () => {
   return (
-    <div className="flex flex-col sm:flex-row bg-white h-full">
-      <div className="flex flex-col">
-        <Header />
-        <div>
-          <Routes>
-            <Route path="*" element={<Home />} />
-            <Route path="/contactanos" element={<Contactanos />} />
-            <Route path="/sedes" element={<Sedes/>} />
-            <Route path="/peliculas" element={<Peliculas />} />
-            <Route path="/dulceria" element={<Dulceria />} />
-            <Route path="/pelicula/detalles/:id" element={<Detalle />} />
-            <Route path="/comprar/*" element={
-              <Comprar/>
-          }/>
-          </Routes>
+    <>
+      <ScrollToTop />
+      <div className="flex flex-col sm:flex-row bg-white h-full">
+        <div className="flex flex-col">
+          <Header />
+          <div>
+            <Routes>
+              <Route path="*" element={<Home />} />
+              <Route path="/contactanos" element={<Contactanos />} />
+              <Route path="/sedes" element={<Sedes/>} />
+              <Route path="/peliculas" element={<Peliculas />} />
+              <Route path="/dulceria" element={<Dulceria />} />
+              <Route path="/pelicula/detalles/:id" element={<Detalle />} />
+              <Route path="/comprar/*" element={
+                <Comprar/>
+            }/>
+            </Routes>
+          </div>
+          <Footer />
         </div>
-        <Footer />
       </div>
-    </div>
+    </>
+    
   );
 };
 
