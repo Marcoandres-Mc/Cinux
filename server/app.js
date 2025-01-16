@@ -25,7 +25,7 @@ app.get('/', (req, res) => {
 
 
 app.use(cors({
-    origin: 'http://localhost:5173' , //process.env.MAIN_PAGE.replace(/\/$/, '')   
+    origin: process.env.MAIN_PAGE.replace(/\/$/, ''), //'http://localhost:5173' 
     credentials: true
 }));
 
